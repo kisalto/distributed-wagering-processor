@@ -1,0 +1,27 @@
+# .github/workflows/sync_labels.yml
+# Runs only when labels.yml changes on main; use the gh CLI commands below for the first setup.
+name: Sync Labels
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/labels.yml'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Sincronizar Labels
+        uses: EndBug/label-sync@v2
+        with:
+          config-file: '.github/labels.yml'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          delete-other-labels: false

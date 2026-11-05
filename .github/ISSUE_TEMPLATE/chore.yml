@@ -1,0 +1,23 @@
+# .github/ISSUE_TEMPLATE/chore.yml
+name: "Task / Chore"
+description: Manutenção, refatoração ou tarefas de infraestrutura/configuração.
+title: "[CHORE]: "
+labels: ["type: chore", "status: triage"]
+body:
+  - type: textarea
+    id: task_description
+    attributes:
+      label: O que precisa ser feito?
+      description: Detalhe a tarefa de manutenção ou ajuste necessário.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridade
+      options:
+        - "priority: low"
+        - "priority: high"
+    validations:
+      required: true

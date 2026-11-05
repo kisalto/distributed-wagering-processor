@@ -1,1 +1,0 @@
-// OpenWalletUseCase: POST /wallets

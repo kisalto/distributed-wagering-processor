@@ -1,0 +1,6 @@
+# .github/ISSUE_TEMPLATE/config.yml
+blank_issues_enabled: false
+contact_links:
+  - name: Dúvidas e Discussões
+    url: https://github.com/kisalto/distributed-wagering-processor/discussions
+    about: Para dúvidas gerais ou perguntas que não se enquadram em bug ou nova feature.

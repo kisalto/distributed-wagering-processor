@@ -1,1 +1,0 @@
-// SqsEventPublisher implements IntegrationEventPublisher

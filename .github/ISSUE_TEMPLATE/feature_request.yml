@@ -1,0 +1,40 @@
+# .github/ISSUE_TEMPLATE/feature_request.yml
+name: "Feature Request"
+description: Sugira uma nova funcionalidade ou melhoria.
+title: "[FEATURE]: "
+labels: ["type: feature", "status: triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema Relacionado
+      description: Essa funcionalidade resolve algum problema ou dor atual?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solução Proposta
+      description: Como você imagina essa funcionalidade funcionando?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Nível de Urgência
+      options:
+        - "priority: low"
+        - "priority: high"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: onboarding
+    attributes:
+      label: Onboarding & Contribuição
+      options:
+        - label: "Esta issue é simples o suficiente para um novo contribuidor? (Adiciona 'good first issue')"
+        - label: "Precisamos de ajuda da comunidade para implementar? (Adiciona 'help wanted')"
+        

@@ -1,0 +1,60 @@
+# .github/ISSUE_TEMPLATE/bug_report.yml
+name: "Bug Report"
+description: Relate um problema ou erro no sistema.
+title: "[BUG]: "
+labels: ["type: bug", "status: triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por relatar o problema! Preencha as informações abaixo para nos ajudar a resolvê-lo rapidamente.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição do Bug
+      description: Uma explicação clara e concisa do que é o problema.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passo a Passo para Reproduzir
+      description: Como podemos reproduzir o erro?
+      placeholder: |
+        1. Acesse a página '...'
+        2. Clique em '...'
+        3. Veja o erro acontecer
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento Esperado vs. Atual
+      description: O que deveria acontecer e o que realmente aconteceu?
+      placeholder: |
+        Esperado: O formulário deve enviar os dados.
+        Atual: O formulário exibe uma tela branca.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridade
+      options:
+        - "priority: low"
+        - "priority: high"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Detalhes do Ambiente
+      description: Sistema Operacional, Navegador, Versão do Python/Node, etc.
+      placeholder: "Ex: Ubuntu 24.04, Chrome 125, Python 3.14"
+    validations:
+      required: false

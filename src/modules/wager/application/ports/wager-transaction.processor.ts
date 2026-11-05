@@ -1,1 +1,0 @@
-// interface WagerTransactionProcessor { processAtomically(command) }

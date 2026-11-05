@@ -1,0 +1,36 @@
+# .github/labels.yml
+- name: "type: bug"
+  color: "d73a4a"
+  description: "Erro ou comportamento inesperado"
+
+- name: "type: feature"
+  color: "a2eeef"
+  description: "Nova funcionalidade"
+
+- name: "type: chore"
+  color: "cfd3d7"
+  description: "Refatoração, docs ou dependências"
+
+- name: "priority: high"
+  color: "b60205"
+  description: "Urgente / Bloqueante"
+
+- name: "priority: low"
+  color: "0e8a16"
+  description: "Baixa urgência / Melhoria futura"
+
+- name: "status: triage"
+  color: "fbca04"
+  description: "Aguardando análise da equipe"
+
+- name: "status: blocked"
+  color: "000000"
+  description: "Depende de outra tarefa/externo"
+
+- name: "good first issue"
+  color: "7057ff"
+  description: "Ideal para novos contribuidores"
+
+- name: "help wanted"
+  color: "008672"
+  description: "Precisa de ajuda da comunidade"

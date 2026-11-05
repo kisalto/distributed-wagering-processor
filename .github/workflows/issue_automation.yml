@@ -1,0 +1,49 @@
+# .github/workflows/issue_automation.yml
+name: Issue Automation
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Atribuir responsável e rotular
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = issue.body || '';
+
+            const labelsToAdd = [];
+
+            // Issue forms render every checkbox option; only checked ones start with "- [X]"
+            if (/^- \[x\] .*good first issue/im.test(body)) labelsToAdd.push("good first issue");
+            if (/^- \[x\] .*help wanted/im.test(body)) labelsToAdd.push("help wanted");
+
+            // Dropdowns render only the selected option
+            if (body.includes("priority: high")) labelsToAdd.push("priority: high");
+            else if (body.includes("priority: low")) labelsToAdd.push("priority: low");
+
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: labelsToAdd
+              });
+            }
+
+            // Assign the repo owner if nobody is assigned yet
+            if (!issue.assignees || issue.assignees.length === 0) {
+              await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                assignees: [context.repo.owner]
+              });
+            }
