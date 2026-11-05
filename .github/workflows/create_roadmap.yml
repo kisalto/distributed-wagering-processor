@@ -18,9 +18,17 @@ permissions:
 
 jobs:
   create:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
+
+      - name: Diagnóstico
+        run: |
+          cat /etc/os-release | head -2
+          which bash gh
+          gh --version
+          ls -la .github .github/scripts scripts 2>&1 || true
+
       - name: Criar labels, milestones e issues
         run: bash .github/scripts/criar-cards.sh
         env:
