@@ -1,0 +1,30 @@
+name: Create Roadmap Cards
+
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: "Título do GitHub Project (vazio = não adicionar ao Project)"
+        required: false
+        default: "Distributed Wagering Processor"
+      dry_run:
+        description: "Só simular"
+        type: boolean
+        default: true
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Criar labels, milestones e issues
+        run: bash .github/scripts/criar-cards.sh
+        env:
+          GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+          REPO: ${{ github.repository }}
+          PROJECT: ${{ inputs.project }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
