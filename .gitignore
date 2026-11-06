@@ -1,1 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment variables (keep only the example file)
 .env
+.env.*
+!.env.example
+
+# Tests and coverage
+coverage/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Local Docker data (if you bind-mount volumes into the repo)
+.docker-data/
+localstack-data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+
+# Local scratch files
+scratch/
